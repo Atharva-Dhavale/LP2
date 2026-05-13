@@ -10,8 +10,9 @@
 using namespace std;
 
 vector<int> adj[20];   // adjacency list
-set<int> visited;
-
+set<int> visited ;
+// set<int> visited ;
+ 
 // --- DFS (Recursive) ---
 void dfs(int node) {
     visited.insert(node);
