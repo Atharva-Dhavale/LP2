@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Cloud Portfolio | LP2 Assignment 7</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">&#9729; CloudPortfolio</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <p class="tagline">Hello, I'm</p>
+      <h1>Atharva Dhavale</h1>
+      <p class="subtitle">Computer Engineering Student &amp; Cloud Enthusiast</p>
+      <p class="hero-desc">
+        This static website is deployed on <strong>AWS EC2</strong> using Apache Web Server.<br/>
+        Publicly accessible via HTTP on port 80.
+      </p>
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="#contact" class="btn btn-outline">Contact Me</a>
+    </div>
+    <div class="hero-badge">
+      <span>&#9729;</span>
+      <p>Hosted on AWS EC2</p>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <span class="icon">&#127979;</span>
+        <h3>Education</h3>
+        <p>BE in Computer Engineering<br/>Savitribai Phule Pune University</p>
+      </div>
+      <div class="about-card">
+        <span class="icon">&#9729;</span>
+        <h3>Cloud</h3>
+        <p>Deployed this site on AWS EC2 with Apache2 web server and configured Security Groups for public access.</p>
+      </div>
+      <div class="about-card">
+        <span class="icon">&#128187;</span>
+        <h3>Development</h3>
+        <p>Passionate about building applications using modern web technologies and cloud platforms.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="section skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <span>HTML / CSS / JS</span>
+        <div class="bar"><div class="fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-item">
+        <span>Python</span>
+        <div class="bar"><div class="fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-item">
+        <span>C / C++</span>
+        <div class="bar"><div class="fill" style="width:80%"></div></div>
+      </div>
+      <div class="skill-item">
+        <span>AWS EC2 / Cloud</span>
+        <div class="bar"><div class="fill" style="width:75%"></div></div>
+      </div>
+      <div class="skill-item">
+        <span>Linux / Apache2</span>
+        <div class="bar"><div class="fill" style="width:70%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="section projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-icon">&#9729;</div>
+        <h3>EC2 Static Website</h3>
+        <p>Deployed a static portfolio on AWS EC2 using Apache2. Configured Security Groups and Elastic IP for public access.</p>
+        <span class="tech-badge">AWS EC2</span>
+        <span class="tech-badge">Apache2</span>
+        <span class="tech-badge">Linux</span>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">&#129302;</div>
+        <h3>AI Expert System</h3>
+        <p>Rule-based Expert System using Python for LP-II assignment. Simulates medical/domain diagnosis using IF-THEN rules.</p>
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">AI</span>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">&#128200;</div>
+        <h3>A* Pathfinding</h3>
+        <p>Implemented A* search algorithm in Python and C++ for shortest path finding with heuristic functions.</p>
+        <span class="tech-badge">C++</span>
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">Algorithms</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-box">
+      <p>&#128231; atharva@example.com</p>
+      <p>&#128279; github.com/atharvadhavale</p>
+      <p>&#127968; Pune, Maharashtra, India</p>
+      <p class="server-info">&#9729; Server: AWS EC2 (Ubuntu) &nbsp;|&nbsp; Web: Apache2 &nbsp;|&nbsp; Port: 80</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Atharva Dhavale &nbsp;|&nbsp; LP-II Assignment 7 &nbsp;|&nbsp; Deployed on AWS EC2</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

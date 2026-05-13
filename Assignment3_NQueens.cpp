@@ -3,7 +3,6 @@
 // using Branch and Bound and Backtracking for n-queens problem
 
 #include <iostream>
-#include <vector>
 using namespace std;
 
 int board[20];  // board[i] = column of queen in row i
