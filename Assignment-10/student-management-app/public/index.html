@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Student Portal</h1>
+            <p>Manage records efficiently.</p>
+        </header>
+
+        <main class="app-main">
+            <!-- Form Section -->
+            <section class="form-section card">
+                <h2 id="form-title">Add New Student</h2>
+                <form id="student-form">
+                    <input type="hidden" id="student-id">
+                    
+                    <div class="input-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="Enter student's full name">
+                    </div>
+                    
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="roll_number">Roll Number</label>
+                            <input type="text" id="roll_number" required placeholder="e.g. CS2023001">
+                        </div>
+                        <div class="input-group">
+                            <label for="course">Course</label>
+                            <input type="text" id="course" required placeholder="e.g. B.Tech Computer Science">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="grade">Grade/GPA</label>
+                        <input type="text" id="grade" placeholder="e.g. A or 8.5">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn" class="btn primary-btn">Add Student</button>
+                        <button type="button" id="cancel-btn" class="btn secondary-btn hidden">Cancel Edit</button>
+                    </div>
+                    <div id="form-message" class="message"></div>
+                </form>
+            </section>
+
+            <!-- Data Table Section -->
+            <section class="data-section card">
+                <div class="data-header">
+                    <h2>Student Records</h2>
+                    <span class="badge" id="total-students">0</span>
+                </div>
+                
+                <div class="table-container">
+                    <table id="students-table">
+                        <thead>
+                            <tr>
+                                <th>Roll Number</th>
+                                <th>Name</th>
+                                <th>Course</th>
+                                <th>Grade</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="students-list">
+                            <!-- Rows will be injected here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="empty-state" class="empty-state hidden">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    <p>No student records found.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
