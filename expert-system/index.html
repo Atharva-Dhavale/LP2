@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Expert System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Hospitals and Medical Facilities Expert System</h1>
+    <p class="subtitle">Select the symptoms below to get a rule-based medical suggestion.</p>
+
+    <div class="summary-box">
+      <p><strong>Selected symptoms:</strong> <span id="selectedCount">0</span></p>
+      <p><strong>System type:</strong> Rule-based diagnosis support</p>
+    </div>
+
+    <div class="grid">
+      <label><input type="checkbox" value="fever"> <span>Fever</span></label>
+      <label><input type="checkbox" value="cough"> <span>Cough</span></label>
+      <label><input type="checkbox" value="cold"> <span>Cold / Runny nose</span></label>
+      <label><input type="checkbox" value="headache"> <span>Headache</span></label>
+      <label><input type="checkbox" value="body_pain"> <span>Body pain</span></label>
+      <label><input type="checkbox" value="sore_throat"> <span>Sore throat</span></label>
+      <label><input type="checkbox" value="breathing"> <span>Difficulty breathing</span></label>
+      <label><input type="checkbox" value="fatigue"> <span>Fatigue</span></label>
+      <label><input type="checkbox" value="vomiting"> <span>Vomiting / Nausea</span></label>
+      <label><input type="checkbox" value="diarrhea"> <span>Diarrhea</span></label>
+      <label><input type="checkbox" value="rash"> <span>Skin rash</span></label>
+      <label><input type="checkbox" value="sneezing"> <span>Sneezing</span></label>
+    </div>
+
+    <div class="actions">
+      <button id="checkBtn" type="button">Check Diagnosis</button>
+      <button id="resetBtn" type="button">Reset</button>
+    </div>
+
+    <p id="message" class="message" aria-live="polite"></p>
+
+    <div id="result" class="result">
+      <h2>Diagnosis Result</h2>
+      <div id="alertBox" class="alert-box"></div>
+      <div id="resultList"></div>
+      <div class="note-box">
+        <p class="note"><strong>Disclaimer:</strong> This is a basic expert system for educational use only.</p>
+        <p class="note">Always consult a qualified doctor or hospital for proper diagnosis and treatment.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

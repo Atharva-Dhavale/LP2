@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee Performance Evaluation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Employee Performance Evaluation System</h1>
+
+        <div class="form-group">
+            <label>Employee Name</label>
+            <input type="text" id="name">
+        </div>
+
+        <div class="form-group">
+            <label>Department</label>
+
+            <select id="department">
+                <option>HR</option>
+                <option>IT</option>
+                <option>Finance</option>
+                <option>Marketing</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Attendance (%)</label>
+            <input type="number" id="attendance" min="0" max="100">
+        </div>
+
+        <div class="form-group">
+            <label>Task Completion (%)</label>
+            <input type="number" id="task" min="0" max="100">
+        </div>
+
+        <div class="form-group">
+            <label>Communication Skills (%)</label>
+            <input type="number" id="communication" min="0" max="100">
+        </div>
+
+        <div class="form-group">
+            <label>Teamwork (%)</label>
+            <input type="number" id="teamwork" min="0" max="100">
+        </div>
+
+        <div class="form-group">
+            <label>Punctuality (%)</label>
+            <input type="number" id="punctuality" min="0" max="100">
+        </div>
+
+        <button onclick="evaluateEmployee()">
+            Evaluate Performance
+        </button>
+
+        <div id="result">
+
+            <h2>Evaluation Result</h2>
+
+            <p><strong>Employee :</strong> <span id="empName"></span></p>
+
+            <p><strong>Department :</strong> <span id="empDept"></span></p>
+
+            <p><strong>Total Score :</strong> <span id="score"></span></p>
+
+            <p><strong>Grade :</strong> <span id="grade"></span></p>
+
+            <p><strong>Category :</strong> <span id="category"></span></p>
+
+            <p><strong>Strengths :</strong> <span id="strength"></span></p>
+
+            <p><strong>Weaknesses :</strong> <span id="weakness"></span></p>
+
+            <p><strong>Recommendation :</strong> <span id="recommendation"></span></p>
+
+        </div>
+
+    </div>
+
+    <script src="expert.js"></script>
+
+</body>
+
+</html>

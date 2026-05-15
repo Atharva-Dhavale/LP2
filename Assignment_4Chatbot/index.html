@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Support Chatbot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="chatbox">
+      <header class="header">
+        <h1>Customer Support Chatbot</h1>
+        <p>Ask about orders, returns, payments, shipping, or account issues.</p>
+      </header>
+
+      <section id="chatArea" class="chat-area" aria-live="polite"></section>
+
+      <div class="quick-actions">
+        <button type="button" class="quick-btn" data-message="Track my order">Track order</button>
+        <button type="button" class="quick-btn" data-message="How do I return a product?">Return item</button>
+        <button type="button" class="quick-btn" data-message="What payment methods do you accept?">Payment help</button>
+      </div>
+
+      <form id="chatForm" class="chat-form">
+        <input
+          id="userInput"
+          type="text"
+          placeholder="Type your message"
+          autocomplete="off"
+          aria-label="Message"
+        >
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
