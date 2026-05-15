@@ -1,5 +1,7 @@
 // Assignment 2: A* Algorithm for 8-Puzzle Problem
 // Implement A star Algorithm for any game search problem
+// Linux/Ubuntu: g++ -std=c++17 Assignment2_AStar.cpp -o Assignment2_AStar && ./Assignment2_AStar
+// Fedora: sudo dnf install gcc-c++ && g++ -std=c++17 Assignment2_AStar.cpp -o Assignment2_AStar && ./Assignment2_AStar
 
 #include <iostream>
 #include <vector>
@@ -138,6 +140,5 @@ int main() {
 // 1 2 3
 // 4 0 6
 // 7 5 8
-// (Solves in 2 moves: swap 5 up, swap 6 left)
-//
-// Compile: g++ -std=c++17 Assignment2_AStar.cpp -o a2 && ./a2
+// Sample Output:
+// Solution found in 2 moves

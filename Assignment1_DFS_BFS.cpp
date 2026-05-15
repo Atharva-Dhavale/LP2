@@ -1,6 +1,8 @@
 // Assignment 1: DFS and BFS on Undirected Graph
 // Implement depth first search and breadth first search algorithm
 // Use an undirected graph and develop a recursive algorithm
+// Linux/Ubuntu: g++ -std=c++17 Assignment1_DFS_BFS.cpp -o Assignment1_DFS_BFS && ./Assignment1_DFS_BFS
+// Fedora: sudo dnf install gcc-c++ && g++ -std=c++17 Assignment1_DFS_BFS.cpp -o Assignment1_DFS_BFS && ./Assignment1_DFS_BFS
 
 #include <iostream>
 #include <vector>
@@ -78,14 +80,13 @@ int main() {
 }
 
 // Sample Input:
-// Edges: 5
+// 5
 // 0 1
 // 0 2
 // 1 3
 // 2 4
 // 3 4
-// Start: 0
+// 0
+// Sample Output Traversal:
 // BFS: 0 1 2 3 4
 // DFS: 0 1 3 4 2
-//
-// Compile: g++ Assignment1_DFS_BFS.cpp -o a1 && ./a1

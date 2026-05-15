@@ -1,6 +1,8 @@
 // Assignment 3: N-Queens Problem using Branch and Bound / Backtracking
 // Implement a solution for a Constraint Satisfaction Problem
 // using Branch and Bound and Backtracking for n-queens problem
+// Linux/Ubuntu: g++ -std=c++17 Assignment3_NQueens.cpp -o Assignment3_NQueens && ./Assignment3_NQueens
+// Fedora: sudo dnf install gcc-c++ && g++ -std=c++17 Assignment3_NQueens.cpp -o Assignment3_NQueens && ./Assignment3_NQueens
 
 #include <iostream>
 using namespace std;
@@ -70,11 +72,10 @@ int main() {
     return 0;
 }
 
-// Sample: N=4
-// Output:
+// Sample Input:
+// 4
+// Sample Output:
 //  .  Q  .  .
 //  .  .  .  Q
 //  Q  .  .  .
 //  .  .  Q  .
-//
-// Compile: g++ Assignment3_NQueens.cpp -o a3 && ./a3

@@ -1,26 +1,68 @@
 // Assignment 5: Greedy Search Algorithms
 // Implement Greedy search algorithm for any three of the following:
 // I. Selection Sort  II. Prim's MST  III. Dijkstra's Shortest Path
+// Linux/Ubuntu: g++ -std=c++17 Assignment5_Greedy.cpp -o Assignment5_Greedy && ./Assignment5_Greedy
+// Fedora: sudo dnf install gcc-c++ && g++ -std=c++17 Assignment5_Greedy.cpp -o Assignment5_Greedy && ./Assignment5_Greedy
 
 #include <iostream>
 #include <vector>
 #include <queue>
 #include <climits>
+#include <tuple>
 using namespace std;
 
 typedef pair<int,int> pii;
+
+vector<int> inputArray() {
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    vector<int> arr(n);
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    return arr;
+}
+
+vector<vector<pii>> inputGraph(int &n, int &e, bool undirected = true) {
+    cout << "Enter number of vertices: ";
+    cin >> n;
+    cout << "Enter number of edges: ";
+    cin >> e;
+
+    vector<vector<pii>> graph(n);
+    cout << "Enter edges in format: source destination weight" << endl;
+
+    for (int i = 0; i < e; i++) {
+        int u, v, w;
+        cout << "Edge " << i + 1 << ": ";
+        cin >> u >> v >> w;
+
+        if (u < 0 || u >= n || v < 0 || v >= n) {
+            cout << "Invalid edge. Vertices must be between 0 and " << n - 1 << "." << endl;
+            i--;
+            continue;
+        }
+
+        graph[u].push_back({v, w});
+        if (undirected) {
+            graph[v].push_back({u, w});
+        }
+    }
+
+    return graph;
+}
 
 // =============================================
 // 1. SELECTION SORT (Greedy: always pick minimum)
 // =============================================
 void selectionSort() {
-    int n;
     cout << "\n--- Selection Sort ---" << endl;
-    cout << "Enter number of elements: ";
-    cin >> n;
-    vector<int> arr(n);
-    cout << "Enter elements: ";
-    for (int i = 0; i < n; i++) cin >> arr[i];
+    vector<int> arr = inputArray();
+    int n = arr.size();
 
     cout << "  Original: ";
     for (int x : arr) cout << x << " ";
@@ -48,25 +90,14 @@ void selectionSort() {
 void primsMST() {
     int n, e;
     cout << "\n--- Prim's MST ---" << endl;
-    cout << "Enter number of vertices: ";
-    cin >> n;
-    cout << "Enter number of edges: ";
-    cin >> e;
-
-    vector<vector<pii>> graph(n);
-    for (int i = 0; i < e; i++) {
-        int u, v, w;
-        cout << "Edge " << i + 1 << " (u v weight): ";
-        cin >> u >> v >> w;
-        graph[u].push_back({v, w});
-        graph[v].push_back({u, w});
-    }
+    vector<vector<pii>> graph = inputGraph(n, e);
 
     vector<bool> visited(n, false);
     // Min heap: (weight, from, to)
     priority_queue<tuple<int,int,int>, vector<tuple<int,int,int>>, greater<>> pq;
     pq.push({0, -1, 0});
     int totalCost = 0;
+    int edgesUsed = 0;
 
     cout << "\nMST Edges:" << endl;
     while (!pq.empty()) {
@@ -79,6 +110,7 @@ void primsMST() {
         if (frm != -1) {
             cout << "  Edge: " << frm << " -- " << to << ", Weight: " << w << endl;
             totalCost += w;
+            edgesUsed++;
         }
 
         for (auto [neighbor, wt] : graph[to]) {
@@ -86,6 +118,12 @@ void primsMST() {
                 pq.push({wt, to, neighbor});
         }
     }
+
+    if (edgesUsed != n - 1) {
+        cout << "\nGraph is disconnected. MST cannot include all vertices." << endl;
+        return;
+    }
+
     cout << "\nTotal MST Cost: " << totalCost << endl;
 }
 
@@ -95,22 +133,15 @@ void primsMST() {
 void dijkstra() {
     int n, e, start;
     cout << "\n--- Dijkstra's Shortest Path ---" << endl;
-    cout << "Enter number of vertices: ";
-    cin >> n;
-    cout << "Enter number of edges: ";
-    cin >> e;
-
-    vector<vector<pii>> graph(n);
-    for (int i = 0; i < e; i++) {
-        int u, v, w;
-        cout << "Edge " << i + 1 << " (u v weight): ";
-        cin >> u >> v >> w;
-        graph[u].push_back({v, w});
-        graph[v].push_back({u, w});
-    }
+    vector<vector<pii>> graph = inputGraph(n, e);
 
     cout << "Enter source vertex: ";
     cin >> start;
+
+    if (start < 0 || start >= n) {
+        cout << "Invalid source vertex!" << endl;
+        return;
+    }
 
     vector<int> dist(n, INT_MAX);
     vector<bool> visited(n, false);
@@ -135,8 +166,12 @@ void dijkstra() {
     }
 
     cout << "\nShortest distances from vertex " << start << ":" << endl;
-    for (int i = 0; i < n; i++)
-        cout << "  To vertex " << i << ": " << dist[i] << endl;
+    for (int i = 0; i < n; i++) {
+        cout << "  To vertex " << i << ": ";
+        if (dist[i] == INT_MAX) cout << "Not reachable";
+        else cout << dist[i];
+        cout << endl;
+    }
 }
 
 // =============================================
@@ -164,12 +199,26 @@ int main() {
     return 0;
 }
 
-// Sample for Prim's/Dijkstra:
-// Vertices: 4, Edges: 5
+// Sample Input for Selection Sort:
+// 1
+// 5
+// 64 25 12 22 11
+// Sample Input for Prim's MST:
+// 2
+// 4
+// 5
 // 0 1 10
 // 0 2 6
 // 0 3 5
 // 1 3 15
 // 2 3 4
-//
-// Compile: g++ -std=c++17 Assignment5_Greedy.cpp -o a5 && ./a5
+// Sample Input for Dijkstra:
+// 3
+// 4
+// 5
+// 0 1 10
+// 0 2 6
+// 0 3 5
+// 1 3 15
+// 2 3 4
+// 0
